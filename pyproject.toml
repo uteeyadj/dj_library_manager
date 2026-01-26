@@ -1,0 +1,22 @@
+[project]
+name = "dj-library-manager"
+version = "1.0.0"
+description = "A professional DJ library scanning and management tool"
+authors = [{ name = "uteeya" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mutagen",
+    "pydub",
+    "numpy",
+]
+
+[project.scripts]
+djmanager = "dj_library_manager.main:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages]
+find = { include = ["dj_library_manager"] }
