@@ -30,8 +30,9 @@ jobs:
           python -m pip install build
 
       - name: Build package
-        working-directory: .
+        working-directory: ${{ github.workspace }}
         run: python -m build
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.8.10
+
