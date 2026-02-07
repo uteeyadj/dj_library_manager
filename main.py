@@ -1,3 +1,5 @@
+import argparse
+from dj_library_manager import __version__
 from dj_library_manager.db_upgrade import upgrade_database
 
 from dj_library_manager.database import (
@@ -299,4 +301,5 @@ def main():
         # Invalid Choice
         else:
             print("Invalid choice. Try again.")
+
 
