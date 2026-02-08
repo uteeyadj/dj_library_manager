@@ -151,6 +151,12 @@ def scan_folder(folder_path: str, fast_mode: bool = False) -> ScanReport:
         print("\nScan cancelled by user.\n")
         return report
 
+    # -----------------------------------------
+    # End of scan summary
+    # -----------------------------------------
+    elapsed = time.time() - start_time
+    mode_label = "Fast Scan" if fast_mode else "Full Scan"
+    report.print_summary(mode_label, elapsed)
     return report
 
 
