@@ -1,21 +1,25 @@
 [project]
-name = "dj-library-manager"
-version = "1.0.4"
-description = "A professional DJ library scanning and management tool"
+name = "uteeya-dj-tools"
+version = "0.1.0"
+description = "A professional DJ library scanning and management tool with BPM/key detection, fingerprinting, and smart crates."
 authors = [{ name = "uteeya" }]
 readme = "README.md"
 requires-python = ">=3.10"
+
 dependencies = [
     "mutagen",
-    "pydub",
     "numpy",
+    "librosa",
+    "rich",
+    "pyacoustid",
+    "soundfile",
 ]
 
 [project.scripts]
 djmanager = "dj_library_manager.main:main"
 
 [build-system]
-requires = ["setuptools==76.1.0", "wheel"]
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages]
