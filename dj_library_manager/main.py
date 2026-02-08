@@ -197,16 +197,7 @@ def main():
         # 1 — Full Scan
         if choice == "1":
             folder = input("Enter folder path to scan: ")
-            report = scan_folder(folder)
-
-            print("\n=== Scan Complete ===")
-            print(f"Scanned: {report.scanned}")
-            print(f"Added: {report.added}")
-            print(f"Duplicates: {report.duplicates}")
-            print(f"Unreadable: {report.unreadable}")
-            print(f"Missing BPM: {report.missing_bpm}")
-            print(f"Missing Key: {report.missing_key}")
-            print(f"Missing Genre: {report.missing_genre}")
+            scan_folder(folder)
 
         # 2 — View All Tracks
         elif choice == "2":
