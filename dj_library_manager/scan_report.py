@@ -2,6 +2,8 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 
+console = Console()
+
 # scan_report.py
 #
 # Builds a clean, structured summary of the scanning process.
@@ -65,4 +67,25 @@ class ScanReport:
     def __str__(self):
         return self.summary_text()
 
+    def print_summary(self, mode: str, elapsed: float):
+        table = Table(show_header=False, box=None, padding=(0, 1))
 
+        table.add_row("Mode:", mode)
+        table.add_row("Total scanned:", str(self.total_scanned))
+        table.add_row("New tracks added:", str(self.added))
+        table.add_row("Duplicates skipped:", str(self.duplicates))
+        table.add_row("Missing BPM:", str(self.missing_bpm))
+        table.add_row("Missing Key:", str(self.missing_key))
+        table.add_row("Missing Genre:", str(self.missing_genre))
+        table.add_row("Unreadable files:", str(self.unreadable))
+        table.add_row("Time:", f"{elapsed:.2f}s")
+
+        panel = Panel(
+            table,
+            title="SCAN SUMMARY",
+            title_align="center",
+            border_style="cyan",
+            padding=(1, 2),
+        )
+
+        console.print(panel)
