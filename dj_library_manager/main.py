@@ -1,6 +1,7 @@
 import argparse
 from dj_library_manager import __version__
 from dj_library_manager.db_upgrade import upgrade_database
+from dj_library_manager.update_checker import check_for_updates
 
 from dj_library_manager.database import (
     init_db,
@@ -164,6 +165,9 @@ def create_key_crates():
 def main():
     args = parse_args()
 
+    # Check for updates before doing anything else
+    check_for_updates()
+
     if args.version:
         print(f"DJ Library Manager v{__version__}")
         return
@@ -307,20 +311,10 @@ def main():
         # 12 — Fast Scan
         elif choice == "12":
             folder = input("Enter folder path to scan: ")
-            report = scan_folder(folder, fast_mode=True)
-
-            print("\n=== Fast Scan Complete ===")
-            print(f"Scanned: {report.scanned}")
-            print(f"Added: {report.added}")
-            print(f"Duplicates: {report.duplicates}")
-            print(f"Unreadable: {report.unreadable}")
-            print(f"Missing BPM: {report.missing_bpm}")
-            print(f"Missing Key: {report.missing_key}")
-            print(f"Missing Genre: {report.missing_genre}")
+            scan_folder(folder, fast_mode=True)
 
         # Invalid Choice
         else:
             print("Invalid choice. Try again.")
-
 
 
