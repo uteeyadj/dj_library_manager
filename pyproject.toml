@@ -1,6 +1,6 @@
 [project]
 name = "dj-library-manager"
-version = "1.0.2"
+version = "1.0.4"
 description = "A professional DJ library scanning and management tool"
 authors = [{ name = "uteeya" }]
 readme = "README.md"
@@ -20,6 +20,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages]
 find = { include = ["dj_library_manager"] }
+
 
 
 
