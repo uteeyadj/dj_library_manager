@@ -20,6 +20,19 @@ from dj_library_manager.database import (
 from dj_library_manager.audio_reader import scan_folder
 from collections import Counter
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="DJ Library Manager – A professional DJ library scanning and management tool",
+        add_help=True
+    )
+
+    parser.add_argument(
+        "--version",
+        action="store_true",
+        help="Show the installed version and exit"
+    )
+
+    return parser.parse_args()
 
 # ============================================================
 # OPEN CRATE (SUMMARY + SORT)
@@ -149,9 +162,16 @@ def create_key_crates():
 # MAIN MENU
 # ============================================================
 def main():
+    args = parse_args()
+
+    if args.version:
+        print(f"DJ Library Manager v{__version__}")
+        return
+
     init_db()
     upgrade_database()
     print(">>> RUNNING CORRECT MAIN.PY <<<")
+
 
     while True:
         print("\n=== DJ Library Manager ===")
@@ -301,5 +321,6 @@ def main():
         # Invalid Choice
         else:
             print("Invalid choice. Try again.")
+
 
 
