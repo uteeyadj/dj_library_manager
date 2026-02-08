@@ -35,6 +35,31 @@ from dj_library_manager.metadata_utils import (
     extract_title,
     extract_artist,
 )
+import librosa
+import numpy as np
+
+KEYS = [
+    "C", "C#", "D", "D#", "E", "F",
+    "F#", "G", "G#", "A", "A#", "B"
+]
+
+def detect_bpm(filepath):
+    try:
+        y, sr = librosa.load(filepath, sr=None, mono=True)
+        tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
+        return int(tempo)
+    except Exception:
+        return None
+
+def detect_key(filepath):
+    try:
+        y, sr = librosa.load(filepath, sr=None, mono=True)
+        chroma = librosa.feature.chroma_cqt(y=y, sr=sr)
+        chroma_mean = chroma.mean(axis=1)
+        key_index = chroma_mean.argmax()
+        return KEYS[key_index]
+    except Exception:
+        return None
 
 from dj_library_manager.fingerprint import generate_fingerprint
 
@@ -191,6 +216,19 @@ def process_file(filepath: str, report: ScanReport, fast_mode: bool):
     genre = normalize_genre(extract_genre(tags))
     bpm = extract_bpm(tags)
     key = extract_key(tags)
+     
+    # -----------------------------------------
+    # Intelligent detection (BPM, Key)
+    # -----------------------------------------
+    if bpm is None:
+        detected_bpm = detect_bpm(filepath)
+        if detected_bpm:
+            bpm = detected_bpm
+
+    if key is None:
+        detected_key = detect_key(filepath)
+        if detected_key:
+            key = detected_key
 
     # -----------------------------------------
     # Fingerprint (skip in fast mode)
