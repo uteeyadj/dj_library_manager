@@ -21,6 +21,7 @@ from dj_library_manager.database import (
 from dj_library_manager.audio_reader import scan_folder
 from collections import Counter
 
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="DJ Library Manager – A professional DJ library scanning and management tool",
@@ -34,6 +35,7 @@ def parse_args():
     )
 
     return parser.parse_args()
+
 
 # ============================================================
 # OPEN CRATE (SUMMARY + SORT)
@@ -50,8 +52,6 @@ def open_crate(crate):
 
     print(f"{len(tracks)} tracks found:\n")
 
-    # Track structure:
-    # (id, title, artist, bpm, musical_key, filepath)
     bpms = [t[3] for t in tracks if t[3] is not None]
     keys = [t[4] for t in tracks if t[4]]
 
@@ -64,7 +64,6 @@ def open_crate(crate):
         common_key = Counter(keys).most_common(1)[0][0]
         print(f"Most common key: {common_key}")
 
-    # Sorting menu
     print("\n--- Sorting Options ---")
     print("1. Artist")
     print("2. Title")
@@ -175,7 +174,6 @@ def main():
     init_db()
     upgrade_database()
     print(">>> RUNNING CORRECT MAIN.PY <<<")
-
 
     while True:
         print("\n=== DJ Library Manager ===")
@@ -307,5 +305,3 @@ def main():
         # Invalid Choice
         else:
             print("Invalid choice. Try again.")
-
-
