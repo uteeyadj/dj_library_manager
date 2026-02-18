@@ -29,3 +29,37 @@ This installs the command‑line tool:
 ```
 djmanager
 ```
+
+## Usage
+After installation, launch the main CLI:
+```
+djmanager
+```
+This opens the interactive menu where you can scan your library, analyze tracks, detect duplicates, and manage crates.
+
+### Full Library Scan
+```
+djmanager scan --full /path/to/music
+```
+
+### Fast Scan (only new or changed files)
+```
+djmanager scan --fast /path/to/music
+```
+
+### View Library Statistics
+```
+djmanager stats
+```
+
+### Detect Duplicates
+```
+djmanager duplicates
+```
+
+### Generate Smart Crates
+```
+djmanager crates auto
+```
+
+
