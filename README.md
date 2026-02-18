@@ -15,10 +15,17 @@ A professional DJ library scanning and management tool featuring:
 This tool is designed for DJs who want a fast, reliable, and intelligent way to organize and analyze their music library.
 
 ---
+
 ## Installation
+
 Install from PyPI:
 
+```
 pip install uteeya-dj-tools
+```
 
 This installs the command‑line tool:
 
+```
+djmanager
+```
