@@ -61,5 +61,15 @@ djmanager duplicates
 ```
 djmanager crates auto
 ```
+## Commands Overview
+
+| Command                               | Description                                                |
+|---------------------------------------|------------------------------------------------------------|
+| `djmanager`                           | Launches the interactive CLI menu.                        |
+| `djmanager scan --full <path>`        | Performs a full library scan (BPM, key, fingerprints).    |
+| `djmanager scan --fast <path>`        | Scans only new or modified files.                         |
+| `djmanager stats`                     | Displays library statistics and scan history.             |
+| `djmanager duplicates`                | Detects duplicate tracks using fingerprints + metadata.   |
+| `djmanager crates auto`               | Generates smart crates (energy, genre, key groups).       |
 
 
