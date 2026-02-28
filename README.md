@@ -19,36 +19,48 @@ This tool is designed for DJs who want a fast, reliable, and intelligent way to 
 ## Installation
 
 Install from PyPI:
+```
 pip install uteeya-dj-tools
+```
 
 This installs the command‑line tool:
+```
 djmanager
-
----
-
+```
 ## Usage
-djmanager
 
 After installation, launch the main CLI:
+```
+djmanager
+```
 
 This opens the interactive menu where you can scan your library, analyze tracks, detect duplicates, and manage crates.
 
 ### Full Library Scan
+```
 djmanager scan --full /path/to/music
+```
 
 ### Fast Scan (only new or changed files)
+```
 djmanager scan --fast /path/to/music
+```
 
 ### View Library Statistics
+```
 djmanager stats
+```
 
 ### Detect Duplicates
+```
 djmanager duplicates
+```
 
 ### Generate Smart Crates
+```
 djmanager crates auto
+```
 
----
 
 ## Commands Overview
 
@@ -66,23 +78,32 @@ djmanager crates auto
 ## Examples
 
 ### Full Library Scan
-
+```
 djmanager scan --full ~/Music
+```
 
 ### Fast Scan (only new or changed files)
+```
 djmanager scan --fast ~/Music
+```
 
 ### View Library Statistics
+```
 djmanager stats
+```
 
 ### Detect Duplicate Tracks
+```
 djmanager duplicates
+```
 
 ### Generate Smart Crates Automatically
+```
 djmanager crates auto
+```
 
 ### Launch the Interactive Menu
+```
 djmanager
-
-
+```
 
