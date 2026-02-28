@@ -66,6 +66,7 @@ djmanager crates auto
 ## Examples
 
 ### Full Library Scan
+
 djmanager scan --full ~/Music
 
 ### Fast Scan (only new or changed files)
@@ -76,7 +77,6 @@ djmanager stats
 
 ### Detect Duplicate Tracks
 djmanager duplicates
-
 
 ### Generate Smart Crates Automatically
 djmanager crates auto
