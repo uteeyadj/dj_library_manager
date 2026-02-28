@@ -22,6 +22,8 @@ Install from PyPI:
 
 This installs the command‑line tool:
 
+---
+
 ## Usage
 
 After installation, launch the main CLI:
@@ -51,21 +53,21 @@ This opens the interactive menu where you can scan your library, analyze tracks,
 | `djmanager duplicates`                | Detects duplicate tracks using fingerprints + metadata.   |
 | `djmanager crates auto`               | Generates smart crates (energy, genre, key groups).       |
 
-djmanager scan --full ~/Music
+---
 
-djmanager scan --fast ~/Music
+## Examples
 
-djmanager stats
+### Full Library Scan
 
-djmanager duplicates
+### Fast Scan (only new or changed files)
 
-djmanager crates auto
+### View Library Statistics
 
-djmanager
+### Detect Duplicate Tracks
 
+### Generate Smart Crates Automatically
 
-
-
+### Launch the Interactive Menu
 
 
 
