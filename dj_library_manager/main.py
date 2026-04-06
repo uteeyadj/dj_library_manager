@@ -299,9 +299,14 @@ def main():
 
         # 12 — Fast Scan
         elif choice == "12":
-            folder = input("Enter folder path to scan: ")
-            scan_folder(folder, fast_mode=True)
+           folder = input("Enter folder path to scan: ")
+           report = scan_folder(folder, fast_mode=True)
 
-        # Invalid Choice
-        else:
-            print("Invalid choice. Try again.")
+           print("\n=== Fast Scan Complete ===")
+           print(f"Scanned: {report.total_scanned}")
+           print(f"Added: {report.added}")
+           print(f"Duplicates: {report.duplicates}")
+           print(f"Unreadable: {report.unreadable}")
+           print(f"Missing BPM: {report.missing_bpm}")
+           print(f"Missing Key: {report.missing_key}")
+           print(f"Missing Genre: {report.missing_genre}")
